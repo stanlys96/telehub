@@ -68,12 +68,10 @@ export default function Home() {
             />
           </a>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[16px] mt-[16px]">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-[16px] mt-[16px]">
           <BotComponent />
           <BotComponent />
           <BotComponent />
-        </div>
-        <div className="grid md:grid-cols-3 gap-[16px] mt-[16px]">
           <BotComponent />
           <BotComponent />
           <BotComponent />
@@ -97,12 +95,10 @@ export default function Home() {
             />
           </a>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[16px] mt-[16px]">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-[16px] mt-[16px]">
           <BotComponent />
           <BotComponent />
           <BotComponent />
-        </div>
-        <div className="grid md:grid-cols-3 gap-[16px] mt-[16px]">
           <BotComponent />
           <BotComponent />
           <BotComponent />
@@ -126,12 +122,10 @@ export default function Home() {
             />
           </a>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[16px] mt-[16px]">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-[16px] mt-[16px]">
           <BotComponent />
           <BotComponent />
           <BotComponent />
-        </div>
-        <div className="grid md:grid-cols-3 gap-[16px] mt-[16px]">
           <BotComponent />
           <BotComponent />
           <BotComponent />
