@@ -26,7 +26,7 @@ export default function Home() {
         <p className="text-[32px] md:text-[64px] font-bold text-center">
           Discover top-tier Telegram bots
         </p>
-        <p className="text-[24px] md:text-[40px] font-bold text-center font-extralight">
+        <p className="text-[24px] md:text-[40px] md:mt-0 mt-4 font-bold text-center font-extralight">
           Number one telegram directory for your needs
         </p>
         <div className="bg-white rounded-[55px] px-[30px] flex justify-between py-[18px] w-[90vw] md:w-[70vw] mt-[50px]">
