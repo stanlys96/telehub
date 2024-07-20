@@ -2,11 +2,11 @@ import Image from "next/image";
 
 export const BotComponent = () => {
   return (
-    <div>
+    <div className="hover:bg-[#F1FCFE] bg-white transition duration-250 rounded-[16px] border border-[#FFFFFF] cursor-pointer hover:border-[#28B9E8]">
       <div className="md:hidden flex justify-center items-center bg-[#9EE7FF] rounded-t-[16px] py-3">
         <Image width={102} height={102} alt="img" src="/img/example.png" />
       </div>
-      <div className="rounded-b-[16px] md:rounded-[16px] px-[26px] py-[24px] bg-white flex gap-x-2 md:flex-row flex-col justify-between">
+      <div className="rounded-b-[16px] md:rounded-[16px] px-[26px] py-[24px] flex gap-x-2 md:flex-row flex-col justify-between">
         <Image
           width={102}
           height={102}
