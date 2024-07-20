@@ -116,8 +116,8 @@ export default function Bot() {
             </div>
             <div className="rounded-[11px] p-[16px] flex flex-col gap-[16px] bg-[#FFEDED] items-center md:items-start">
               <p className="text-center md:text-left">
-                Do you notice any incorrect information, or do you suspect it's
-                a malicious bot?
+                Do you notice any incorrect information, or do you suspect
+                it&apos;s a malicious bot?
               </p>
               <a className="rounded-[10px] p-[12px] flex gap-x-[10px] bg-[#FF3636] w-fit items-center cursor-pointer">
                 <Image
