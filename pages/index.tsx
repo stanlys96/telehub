@@ -5,7 +5,13 @@ export default function Home() {
   return (
     <main>
       <div className="px-[10px] md:px-[150px] py-[32px] flex justify-between">
-        <Image width={197} height={40} alt="telehub" src="/img/logo.svg" />
+        <Image
+          width={197}
+          height={40}
+          className="w-[150px] md:w-[197px]"
+          alt="telehub"
+          src="/img/logo.svg"
+        />
         <a className="rounded-[30px] cursor-pointer px-[27px] py-[10px] bg-[#28B9E8] flex items-center gap-x-2">
           <Image
             width={24}
