@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main>
-      <div className="px-[150px] py-[32px] flex justify-between">
+      <div className="px-[10px] md:px-[150px] py-[32px] flex justify-between">
         <Image width={197} height={40} alt="telehub" src="/img/logo.svg" />
         <a className="rounded-[30px] cursor-pointer px-[27px] py-[10px] bg-[#28B9E8] flex items-center gap-x-2">
           <Image
@@ -17,13 +17,13 @@ export default function Home() {
         </a>
       </div>
       <div className="h-[512px] w-full hero flex justify-center items-center flex-col">
-        <p className="text-[64px] font-bold text-center">
+        <p className="text-[32px] md:text-[64px] font-bold text-center">
           Discover top-tier Telegram bots
         </p>
-        <p className="text-[40px] font-bold text-center font-extralight">
+        <p className="text-[24px] md:text-[40px] font-bold text-center font-extralight">
           Number one telegram directory for your needs
         </p>
-        <div className="bg-white rounded-[55px] px-[30px] flex justify-between py-[18px] w-[70vw] mt-[50px]">
+        <div className="bg-white rounded-[55px] px-[30px] flex justify-between py-[18px] w-[90vw] md:w-[70vw] mt-[50px]">
           <div className="flex gap-x-2 items-center flex-1">
             <Image width={24} height={24} alt="search" src="/img/Search.svg" />
             <input
@@ -48,7 +48,7 @@ export default function Home() {
         <div className="flex justify-between items-center">
           <div className="flex gap-x-2 items-center">
             <div className="h-[50px] w-[9px] bg-[#28B9E8]" />
-            <p className="text-[40px]">Top Trending</p>
+            <p className="text-[18px] md:text-[40px]">Top Trending</p>
           </div>
           <a className="rounded-[30px] cursor-pointer h-fit px-[19px] py-[12px] bg-[#28B9E8] flex items-center gap-x-1">
             <span className="text-white">View All Bots</span>
@@ -60,17 +60,12 @@ export default function Home() {
             />
           </a>
         </div>
-        <div className="grid grid-cols-3 gap-[16px] mt-[16px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[16px] mt-[16px]">
           <BotComponent />
           <BotComponent />
           <BotComponent />
         </div>
-        <div className="grid grid-cols-3 gap-[16px] mt-[16px]">
-          <BotComponent />
-          <BotComponent />
-          <BotComponent />
-        </div>
-        <div className="grid grid-cols-3 gap-[16px] mt-[16px]">
+        <div className="grid md:grid-cols-3 gap-[16px] mt-[16px]">
           <BotComponent />
           <BotComponent />
           <BotComponent />
@@ -80,7 +75,7 @@ export default function Home() {
         <div className="flex justify-between items-center">
           <div className="flex gap-x-2 items-center">
             <div className="h-[50px] w-[9px] bg-[#28B9E8]" />
-            <p className="text-[40px]">Top bot per category</p>
+            <p className="text-[16px] md:text-[40px]">Top bot per category</p>
           </div>
           <a className="rounded-[30px] cursor-pointer h-fit px-[19px] py-[12px] bg-[#28B9E8] flex items-center gap-x-1">
             <span className="text-white">View All Bots</span>
@@ -92,12 +87,12 @@ export default function Home() {
             />
           </a>
         </div>
-        <div className="grid grid-cols-3 gap-[16px] mt-[16px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[16px] mt-[16px]">
           <BotComponent />
           <BotComponent />
           <BotComponent />
         </div>
-        <div className="grid grid-cols-3 gap-[16px] mt-[16px]">
+        <div className="grid md:grid-cols-3 gap-[16px] mt-[16px]">
           <BotComponent />
           <BotComponent />
           <BotComponent />
@@ -107,7 +102,7 @@ export default function Home() {
         <div className="flex justify-between items-center">
           <div className="flex gap-x-2 items-center">
             <div className="h-[50px] w-[9px] bg-[#28B9E8]" />
-            <p className="text-[40px]">Recently Added</p>
+            <p className="text-[16px] md:text-[40px]">Recently Added</p>
           </div>
           <a className="rounded-[30px] cursor-pointer h-fit px-[19px] py-[12px] bg-[#28B9E8] flex items-center gap-x-1">
             <span className="text-white">View All Bots</span>
@@ -119,12 +114,12 @@ export default function Home() {
             />
           </a>
         </div>
-        <div className="grid grid-cols-3 gap-[16px] mt-[16px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[16px] mt-[16px]">
           <BotComponent />
           <BotComponent />
           <BotComponent />
         </div>
-        <div className="grid grid-cols-3 gap-[16px] mt-[16px]">
+        <div className="grid md:grid-cols-3 gap-[16px] mt-[16px]">
           <BotComponent />
           <BotComponent />
           <BotComponent />
