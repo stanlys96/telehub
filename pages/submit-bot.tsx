@@ -74,7 +74,10 @@ export default function SubmitBot() {
             <p className="text-[20px] md:text-[32px] font-bold text-center">
               Telehub bot submission
             </p>
-            <Input placeholder="Telegram bot name" />
+            <Input
+              className="w-[85vw] md:w-full"
+              placeholder="Telegram bot name"
+            />
             <Input placeholder="Telegram bot username (ex:@telegram_bot)" />
             <Select
               defaultValue="lucy"
