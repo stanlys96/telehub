@@ -1,8 +1,13 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export const BotComponent = () => {
+  const router = useRouter();
   return (
-    <div className="hover:bg-[#F1FCFE] bg-white transition duration-250 rounded-[16px] border border-[#FFFFFF] cursor-pointer hover:border-[#28B9E8]">
+    <div
+      onClick={() => router.push("/bot")}
+      className="hover:bg-[#F1FCFE] bg-white transition duration-250 rounded-[16px] border border-[#FFFFFF] cursor-pointer hover:border-[#28B9E8]"
+    >
       <div className="md:hidden flex justify-center items-center bg-[#9EE7FF] rounded-t-[16px] py-3">
         <Image width={102} height={102} alt="img" src="/img/example.png" />
       </div>
