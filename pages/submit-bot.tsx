@@ -36,13 +36,13 @@ export default function SubmitBot() {
               activities, phishing attempts, or spamming users.
               <br />
               3. Respect User Privacy: Bots must handle user data responsibly,
-              respecting privacy laws and Telegram's policies.
+              respecting privacy laws and Telegram&apos;s policies.
               <br />
               4. Original and Valuable Functionality: Bots should offer unique
               and useful features to enhance user experience.
               <br />
-              5. Compliance: Bots must comply with Telegram's bot API terms and
-              conditions.
+              5. Compliance: Bots must comply with Telegram&apos;s bot API terms
+              and conditions.
               <br />
               6. Contact Information: Provide accurate contact details for bot
               developers for support and inquiries.
