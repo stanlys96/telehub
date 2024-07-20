@@ -16,7 +16,7 @@ export default function Home() {
           <span className="text-white">Submit Bot</span>
         </a>
       </div>
-      <div className="h-[512px] w-full hero flex justify-center items-center flex-col">
+      <div className="h-[512px] p-[16px] w-full hero flex justify-center items-center flex-col">
         <p className="text-[32px] md:text-[64px] font-bold text-center">
           Discover top-tier Telegram bots
         </p>
