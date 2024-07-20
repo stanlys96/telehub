@@ -10,7 +10,10 @@ export default function Bot() {
   return (
     <MainLayout>
       <div className="px-[16px] md:px-[100px] py-[50px]">
-        <a href="/" className="cursor-pointer underline">
+        <a
+          onClick={() => router.push("/")}
+          className="cursor-pointer underline"
+        >
           {"<"} Return to previous page
         </a>
         <div className="grid md:grid-cols-3 gap-5 mt-5">
