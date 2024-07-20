@@ -57,7 +57,9 @@ export default function Home() {
             <p className="text-[18px] md:text-[40px]">Top Trending</p>
           </div>
           <a className="rounded-[30px] cursor-pointer h-fit px-[19px] py-[12px] bg-[#28B9E8] flex items-center gap-x-1">
-            <span className="text-white">View All Bots</span>
+            <span className="text-white text-[12px] md:text-[16px]">
+              View All Bots
+            </span>
             <Image
               width={24}
               height={24}
@@ -84,7 +86,9 @@ export default function Home() {
             <p className="text-[16px] md:text-[40px]">Top bot per category</p>
           </div>
           <a className="rounded-[30px] cursor-pointer h-fit px-[19px] py-[12px] bg-[#28B9E8] flex items-center gap-x-1">
-            <span className="text-white">View All Bots</span>
+            <span className="text-white text-[12px] md:text-[16px]">
+              View All Bots
+            </span>
             <Image
               width={24}
               height={24}
@@ -111,7 +115,9 @@ export default function Home() {
             <p className="text-[16px] md:text-[40px]">Recently Added</p>
           </div>
           <a className="rounded-[30px] cursor-pointer h-fit px-[19px] py-[12px] bg-[#28B9E8] flex items-center gap-x-1">
-            <span className="text-white">View All Bots</span>
+            <span className="text-white text-[12px] md:text-[16px]">
+              View All Bots
+            </span>
             <Image
               width={24}
               height={24}
