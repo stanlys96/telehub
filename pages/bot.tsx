@@ -2,8 +2,24 @@ import { MainLayout } from "@/src/layouts/MainLayout";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState } from "react";
+import { Select, Modal, Input } from "antd";
+
+const { TextArea } = Input;
 
 export default function Bot() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   const router = useRouter();
   const [hover, setHover] = useState(0);
   const [rating, setRating] = useState(0);
@@ -122,7 +138,10 @@ export default function Bot() {
                 Do you notice any incorrect information, or do you suspect
                 it&apos;s a malicious bot?
               </p>
-              <a className="rounded-[10px] p-[12px] flex gap-x-[10px] bg-[#FF3636] w-fit items-center cursor-pointer">
+              <a
+                onClick={showModal}
+                className="rounded-[10px] p-[12px] flex gap-x-[10px] bg-[#FF3636] w-fit items-center cursor-pointer"
+              >
                 <Image
                   className="cursor-pointer"
                   src="/img/alert-circle.svg"
@@ -136,6 +155,52 @@ export default function Bot() {
           </div>
         </div>
       </div>
+      <Modal
+        title=""
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={null}
+      >
+        <p className="mt-[25px] text-center text-[24px] font-bold">
+          Report Bot
+        </p>
+        <p className="my-3 text-[14px] text-[#718096]">
+          Please provide the reason and description for reporting the bot. We
+          will review the issue and take appropriate action if it violates our
+          guidelines.
+        </p>
+        <Select
+          defaultValue="lucy"
+          // onChange={handleChange}
+          className="w-full rounded-[12px]"
+          options={[
+            { value: "jack", label: "Jack" },
+            { value: "lucy", label: "Lucy" },
+            { value: "Yiminghe", label: "yiminghe" },
+          ]}
+        />
+        <p className="text-[16px] font-bold text-[#718096] my-3">
+          Tell us more about the problem
+        </p>
+        <TextArea
+          rows={6}
+          placeholder="Please be clear and concise about the reasoning"
+          maxLength={10}
+        />
+        <a
+          onClick={handleOk}
+          className="cursor-pointer bg-[#3AC8F7] rounded-[12px] px-[8px] py-[16px] font-bold w-full my-5 block text-center hover:text-black"
+        >
+          Report Bot
+        </a>
+        <a
+          onClick={handleCancel}
+          className="cursor-pointer underline text-[#636363] text-center block w-full hover:underline hover:text-[#636363]"
+        >
+          Cancel Action
+        </a>
+      </Modal>
     </MainLayout>
   );
 }

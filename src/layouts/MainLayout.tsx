@@ -1,4 +1,4 @@
-import { BotComponent } from "@/src/components/BotComponent";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import { ReactNode } from "react";
 
@@ -7,9 +7,10 @@ interface Props {
 }
 
 export const MainLayout = ({ children }: Props) => {
+  const router = useRouter();
   return (
     <main>
-      <div className="bg-white px-[10px] md:px-[150px] py-[32px] flex justify-between">
+      <div className="bg-white px-[10px] md:px-[150px] py-[32px] flex justify-between border-[#D6D6D6] border-b">
         <Image
           width={197}
           height={40}
@@ -17,7 +18,10 @@ export const MainLayout = ({ children }: Props) => {
           alt="telehub"
           src="/img/logo.svg"
         />
-        <a className="rounded-[30px] cursor-pointer px-[27px] py-[10px] bg-[#28B9E8] flex items-center gap-x-2">
+        <a
+          onClick={() => router.push("/submit-bot")}
+          className="rounded-[30px] cursor-pointer px-[27px] py-[10px] bg-[#28B9E8] flex items-center gap-x-2"
+        >
           <Image
             width={24}
             height={24}
