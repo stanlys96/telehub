@@ -44,7 +44,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="p-[32px]">
+      <div className="p-[16px] md:p-[32px]">
         <div className="flex justify-between items-center">
           <div className="flex gap-x-2 items-center">
             <div className="h-[50px] w-[9px] bg-[#28B9E8]" />
@@ -71,7 +71,7 @@ export default function Home() {
           <BotComponent />
         </div>
       </div>
-      <div className="p-[32px]">
+      <div className="p-[16px] md:p-[32px]">
         <div className="flex justify-between items-center">
           <div className="flex gap-x-2 items-center">
             <div className="h-[50px] w-[9px] bg-[#28B9E8]" />
@@ -98,7 +98,7 @@ export default function Home() {
           <BotComponent />
         </div>
       </div>
-      <div className="p-[32px]">
+      <div className="p-[16px] md:p-[32px]">
         <div className="flex justify-between items-center">
           <div className="flex gap-x-2 items-center">
             <div className="h-[50px] w-[9px] bg-[#28B9E8]" />
