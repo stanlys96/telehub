@@ -142,7 +142,7 @@ export default function Home() {
         {searchQuery && (
           <div className="text-center md:text-left">
             <p>Search results for &quot;{searchQuery}&quot;</p>
-            <p>{botsResult?.length} results</p>
+            <p>{botsResult?.length ?? "0"} results</p>
           </div>
         )}
         <div
@@ -276,7 +276,7 @@ export default function Home() {
               }
             />
           </div>
-          {finalBotsResult ? (
+          {finalBotsResult?.length > 0 ? (
             <div className="grid lg:grid-cols-2 xl:grid-cols-3 w-full md:mt-0 mt-5 gap-3">
               {finalBotsResult?.map((data: any, idx: number) => (
                 <BotSearchComponent
@@ -289,9 +289,11 @@ export default function Home() {
             <div className="flex justify-center w-full">
               <Spin size="large" />
             </div>
-          ) : finalBotsResult?.length === 0 ? (
-            <p className="text-black text-[50px]">Query not found...</p>
-          ) : null}
+          ) : (
+            <p className="text-black text-[32px] md:mt-0 mt-3 md:text-[40px] w-full text-center">
+              Query not found...
+            </p>
+          )}
         </div>
       )}
     </MainLayout>
