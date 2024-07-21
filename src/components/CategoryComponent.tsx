@@ -27,7 +27,10 @@ export const CategoryComponent = ({ attributes }: Props) => {
       </div>
       <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-[16px] mt-[16px]">
         {attributes?.bots?.data?.map((data: any, idx: number) => (
-          <BotComponent attributes={{ ...data?.attributes, id: data?.id }} />
+          <BotComponent
+            key={data?.id}
+            attributes={{ ...data?.attributes, id: data?.id }}
+          />
         ))}
       </div>
     </div>

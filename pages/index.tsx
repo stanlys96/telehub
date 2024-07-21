@@ -42,7 +42,7 @@ export default function Home() {
         </div>
       </div>
       {categoriesResult?.map((data: any, idx: number) => (
-        <CategoryComponent attributes={data?.attributes} />
+        <CategoryComponent key={data?.id} attributes={data?.attributes} />
       ))}
     </MainLayout>
   );
