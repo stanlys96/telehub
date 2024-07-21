@@ -1,8 +1,16 @@
-import { BotComponent } from "@/src/components/BotComponent";
+import { CategoryComponent } from "@/src/components/CategoryComponent";
 import { MainLayout } from "@/src/layouts/MainLayout";
+import { fetcherStrapi } from "@/utils/axios";
 import Image from "next/image";
+import useSWR from "swr";
 
 export default function Home() {
+  const { data: categoriesData } = useSWR(
+    `/api/categories?populate=deep,10`,
+    fetcherStrapi
+  );
+  const categoriesResult = categoriesData?.data?.data;
+
   return (
     <MainLayout>
       <div className="h-[512px] p-[16px] w-full hero flex justify-center items-center flex-col">
@@ -33,87 +41,9 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="p-[16px] md:p-[32px]">
-        <div className="flex justify-between items-center">
-          <div className="flex gap-x-2 items-center">
-            <div className="h-[50px] w-[9px] bg-[#28B9E8]" />
-            <p className="text-[18px] md:text-[40px]">Top Trending</p>
-          </div>
-          <a className="rounded-[30px] cursor-pointer h-fit px-[19px] py-[12px] bg-[#28B9E8] flex items-center gap-x-1">
-            <span className="text-white text-[12px] md:text-[16px]">
-              View All Bots
-            </span>
-            <Image
-              width={24}
-              height={24}
-              alt="download"
-              src="/img/chevron-right.svg"
-            />
-          </a>
-        </div>
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-[16px] mt-[16px]">
-          <BotComponent />
-          <BotComponent />
-          <BotComponent />
-          <BotComponent />
-          <BotComponent />
-          <BotComponent />
-        </div>
-      </div>
-      <div className="p-[16px] md:p-[32px]">
-        <div className="flex justify-between items-center">
-          <div className="flex gap-x-2 items-center">
-            <div className="h-[50px] w-[9px] bg-[#28B9E8]" />
-            <p className="text-[16px] md:text-[40px]">Top bot per category</p>
-          </div>
-          <a className="rounded-[30px] cursor-pointer h-fit px-[19px] py-[12px] bg-[#28B9E8] flex items-center gap-x-1">
-            <span className="text-white text-[12px] md:text-[16px]">
-              View All Bots
-            </span>
-            <Image
-              width={24}
-              height={24}
-              alt="download"
-              src="/img/chevron-right.svg"
-            />
-          </a>
-        </div>
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-[16px] mt-[16px]">
-          <BotComponent />
-          <BotComponent />
-          <BotComponent />
-          <BotComponent />
-          <BotComponent />
-          <BotComponent />
-        </div>
-      </div>
-      <div className="p-[16px] md:p-[32px]">
-        <div className="flex justify-between items-center">
-          <div className="flex gap-x-2 items-center">
-            <div className="h-[50px] w-[9px] bg-[#28B9E8]" />
-            <p className="text-[16px] md:text-[40px]">Recently Added</p>
-          </div>
-          <a className="rounded-[30px] cursor-pointer h-fit px-[19px] py-[12px] bg-[#28B9E8] flex items-center gap-x-1">
-            <span className="text-white text-[12px] md:text-[16px]">
-              View All Bots
-            </span>
-            <Image
-              width={24}
-              height={24}
-              alt="download"
-              src="/img/chevron-right.svg"
-            />
-          </a>
-        </div>
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-[16px] mt-[16px]">
-          <BotComponent />
-          <BotComponent />
-          <BotComponent />
-          <BotComponent />
-          <BotComponent />
-          <BotComponent />
-        </div>
-      </div>
+      {categoriesResult?.map((data: any, idx: number) => (
+        <CategoryComponent attributes={data?.attributes} />
+      ))}
     </MainLayout>
   );
 }

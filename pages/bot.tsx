@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState } from "react";
 import { Select, Modal, Input } from "antd";
+import useSWR from "swr";
+import { fetcherStrapi } from "@/utils/axios";
 
 const { TextArea } = Input;
 
@@ -23,6 +25,12 @@ export default function Bot() {
   const router = useRouter();
   const [hover, setHover] = useState(0);
   const [rating, setRating] = useState(0);
+  const { data: botData } = useSWR(
+    `/api/bots/${router.query?.id}?populate=*`,
+    fetcherStrapi
+  );
+  const botResult = botData?.data?.data;
+
   return (
     <MainLayout>
       <div className="px-[16px] md:px-[100px] py-[50px]">
@@ -36,16 +44,22 @@ export default function Bot() {
           <div className="flex flex-col md:gap-5 col-span-2">
             <div className="md:hidden flex justify-center items-center bg-[#9EE7FF] rounded-t-[16px] py-3">
               <Image
-                width={102}
-                height={102}
+                width={100}
+                height={100}
                 alt="img"
-                src="/img/example.png"
+                src={
+                  process.env.NEXT_PUBLIC_AXIOS_API +
+                  botResult?.attributes?.image?.data?.attributes?.url
+                }
               />
             </div>
             <div className="rounded-b-[12px] md:rounded-[12px] bg-white p-[12px] md:p-[24px] flex gap-x-4">
               <div className="hidden md:block">
                 <Image
-                  src="/img/example.png"
+                  src={
+                    process.env.NEXT_PUBLIC_AXIOS_API +
+                    botResult?.attributes?.image?.data?.attributes?.url
+                  }
                   width={180}
                   height={180}
                   alt="example"
@@ -54,17 +68,31 @@ export default function Bot() {
               <div className="w-full">
                 <div className="flex justify-between items-center w-full">
                   <p className="text-[24px] md:text-[40px] font-semibold">
-                    Bot Title
+                    {botResult?.attributes?.title}
                   </p>
-                  <div className="p-[8px] md:p-[16px] rounded-[8px] bg-[#CDFCFF]">
-                    <span className="font-semibold text-[20px] text-[#11787F]">
-                      Gamefi
+                  <div
+                    className={`p-[8px] md:p-[16px] rounded-[8px] bg-[${
+                      botResult?.attributes?.subcategory?.data?.attributes
+                        ?.backgroundColor ?? "#CDFCFF"
+                    }]`}
+                  >
+                    <span
+                      className={`font-semibold text-[20px] text-[${
+                        botResult?.attributes?.subcategory?.data?.attributes
+                          ?.textColor ?? "#11787F"
+                      }]`}
+                    >
+                      {
+                        botResult?.attributes?.subcategory?.data?.attributes
+                          ?.title
+                      }
                     </span>
                   </div>
                 </div>
                 <div className="my-3">
                   <p className="text-[16px] md:text-[24px]">
-                    Chain, XXX Members
+                    {botResult?.attributes?.chain} Chain,{" "}
+                    {botResult?.attributes?.members} Members
                   </p>
                 </div>
                 <a className="cursor-pointer w-full block px-[19px] py-[8px] rounded-[39px] text-[#28B9E8] font-bold text-center border border-[#28B9E8]">
@@ -75,7 +103,7 @@ export default function Bot() {
             <div className="md:mt-0 mt-5 rounded-[12px] bg-white p-[24px]">
               <p>Bot Description</p>
               <hr className="my-5" />
-              <p>Bot description lorem ipsum here</p>
+              <p>{botResult?.attributes?.description}</p>
             </div>
           </div>
           <div className="rounded-[12px] bg-white p-[35px]">
@@ -84,12 +112,14 @@ export default function Bot() {
             <div className="flex gap-x-2">
               <div className="rounded-[8px] px-[16px] py-[10px] bg-[#FFFACD] w-fit">
                 <span className="text-[36px] text-[#D88C0D] font-bold">
-                  98%
+                  {botResult?.attributes?.rating}%
                 </span>
               </div>
               <div>
                 <p className="text-[24px] text-[#D88C0D]">Rated</p>
-                <p className="text-[20px] text-[#D88C0D]">120 reviews</p>
+                <p className="text-[20px] text-[#D88C0D]">
+                  {botResult?.attributes?.reviews} reviews
+                </p>
               </div>
             </div>
             <div className="my-3 flex justify-between">
