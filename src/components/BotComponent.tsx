@@ -15,28 +15,32 @@ export const BotComponent = ({ attributes }: Props) => {
       className="hover:bg-[#F1FCFE] bg-white transition duration-250 rounded-[16px] border border-[#FFFFFF] cursor-pointer hover:border-[#28B9E8]"
     >
       <div className="md:hidden flex justify-center items-center bg-[#9EE7FF] rounded-t-[16px] py-3">
-        <Image
-          width={100}
-          height={100}
-          alt="img"
-          src={
-            process.env.NEXT_PUBLIC_AXIOS_API +
-            attributes?.image?.data?.attributes?.url
-          }
-          className="h-fit"
-        />
+        {attributes?.image?.data?.attributes?.url && (
+          <Image
+            width={100}
+            height={100}
+            alt="img"
+            src={
+              process.env.NEXT_PUBLIC_AXIOS_API +
+                attributes?.image?.data?.attributes?.url ?? ""
+            }
+            className="h-fit"
+          />
+        )}
       </div>
       <div className="rounded-b-[16px] md:rounded-[16px] px-[26px] py-[24px] flex gap-x-2 md:flex-row flex-col justify-between">
-        <Image
-          width={100}
-          height={100}
-          alt="img"
-          className="hidden md:block h-fit"
-          src={
-            process.env.NEXT_PUBLIC_AXIOS_API +
-            attributes?.image?.data?.attributes?.url
-          }
-        />
+        {attributes?.image?.data?.attributes?.url && (
+          <Image
+            width={100}
+            height={100}
+            alt="img"
+            className="hidden md:block h-fit"
+            src={
+              process.env.NEXT_PUBLIC_AXIOS_API +
+                attributes?.image?.data?.attributes?.url ?? ""
+            }
+          />
+        )}
         <div className="flex flex-col gap-y-3 justify-center">
           <p className="font-semibold">{attributes?.title}</p>
           <p>
@@ -51,12 +55,13 @@ export const BotComponent = ({ attributes }: Props) => {
         </div>
         <div className="flex flex-row justify-between md:mt-0 mt-5 md:flex-col items-end gap-y-2">
           <div
-            className={`rounded-[8px] w-fit bg-[${
+            className={`rounded-[8px] w-fit ${
               attributes?.subcategory?.data?.attributes?.backgroundColor ??
-              "#CDFCFF"
-            }] px-[16px] py-[10px] h-fit text-[${
-              attributes?.subcategory?.data?.attributes?.textColor ?? "#11787F"
-            }] font-semibold`}
+              "bg-[#CDFCFF]"
+            } px-[16px] py-[10px] h-fit ${
+              attributes?.subcategory?.data?.attributes?.textColor ??
+              "text-[#11787F]"
+            } font-semibold`}
           >
             {attributes?.subcategory?.data?.attributes?.title}
           </div>

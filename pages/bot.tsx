@@ -43,51 +43,58 @@ export default function Bot() {
         <div className="grid md:grid-cols-3 gap-5 mt-5">
           <div className="flex flex-col md:gap-5 col-span-2">
             <div className="md:hidden flex justify-center items-center bg-[#9EE7FF] rounded-t-[16px] py-3">
-              <Image
-                width={100}
-                height={100}
-                alt="img"
-                src={
-                  process.env.NEXT_PUBLIC_AXIOS_API +
-                  botResult?.attributes?.image?.data?.attributes?.url
-                }
-              />
+              {botResult?.attributes?.image?.data?.attributes?.url && (
+                <Image
+                  width={100}
+                  height={100}
+                  alt="img"
+                  src={
+                    process.env.NEXT_PUBLIC_AXIOS_API +
+                      botResult?.attributes?.image?.data?.attributes?.url ?? ""
+                  }
+                />
+              )}
             </div>
             <div className="rounded-b-[12px] md:rounded-[12px] bg-white p-[12px] md:p-[24px] flex gap-x-4">
               <div className="hidden md:block">
-                <Image
-                  src={
-                    process.env.NEXT_PUBLIC_AXIOS_API +
-                    botResult?.attributes?.image?.data?.attributes?.url
-                  }
-                  width={180}
-                  height={180}
-                  alt="example"
-                />
+                {botResult?.attributes?.image?.data?.attributes?.url && (
+                  <Image
+                    src={
+                      process.env.NEXT_PUBLIC_AXIOS_API +
+                        botResult?.attributes?.image?.data?.attributes?.url ??
+                      ""
+                    }
+                    width={180}
+                    height={180}
+                    alt="example"
+                  />
+                )}
               </div>
               <div className="w-full">
                 <div className="flex justify-between items-center w-full">
                   <p className="text-[24px] md:text-[40px] font-semibold">
                     {botResult?.attributes?.title}
                   </p>
-                  <div
-                    className={`p-[8px] md:p-[16px] rounded-[8px] bg-[${
-                      botResult?.attributes?.subcategory?.data?.attributes
-                        ?.backgroundColor ?? "#CDFCFF"
-                    }]`}
-                  >
-                    <span
-                      className={`font-semibold text-[20px] text-[${
+                  {botResult?.attributes?.subcategory?.data?.attributes && (
+                    <div
+                      className={`p-[8px] md:p-[16px] rounded-[8px] ${
                         botResult?.attributes?.subcategory?.data?.attributes
-                          ?.textColor ?? "#11787F"
+                          ?.backgroundColor ?? "bg-[#CDFCFF]"
                       }]`}
                     >
-                      {
-                        botResult?.attributes?.subcategory?.data?.attributes
-                          ?.title
-                      }
-                    </span>
-                  </div>
+                      <span
+                        className={`font-semibold text-[20px] ${
+                          botResult?.attributes?.subcategory?.data?.attributes
+                            ?.textColor ?? "text-[#11787F]"
+                        }]`}
+                      >
+                        {
+                          botResult?.attributes?.subcategory?.data?.attributes
+                            ?.title
+                        }
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div className="my-3">
                   <p className="text-[16px] md:text-[24px]">
