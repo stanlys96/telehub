@@ -30,7 +30,10 @@ export default function Bot() {
     fetcherStrapi
   );
   const botResult = botData?.data?.data;
-
+  console.log(
+    botResult?.attributes?.subcategory?.data?.attributes?.backgroundColor,
+    "<<< WALDO"
+  );
   return (
     <MainLayout>
       <div className="px-[16px] md:px-[100px] py-[50px]">
@@ -75,26 +78,25 @@ export default function Bot() {
                   <p className="text-[24px] md:text-[40px] font-semibold">
                     {botResult?.attributes?.title}
                   </p>
-                  {botResult?.attributes?.subcategory?.data?.attributes && (
-                    <div
-                      className={`p-[8px] md:p-[16px] rounded-[8px] ${
+
+                  <div
+                    className={`p-[8px] md:p-[16px] rounded-[8px] ${
+                      botResult?.attributes?.subcategory?.data?.attributes
+                        ?.backgroundColor ?? "bg-[#CDFCFF]"
+                    }`}
+                  >
+                    <span
+                      className={`font-semibold text-[20px] ${
                         botResult?.attributes?.subcategory?.data?.attributes
-                          ?.backgroundColor ?? "bg-[#CDFCFF]"
-                      }]`}
+                          ?.textColor ?? "text-[#11787F]"
+                      }`}
                     >
-                      <span
-                        className={`font-semibold text-[20px] ${
-                          botResult?.attributes?.subcategory?.data?.attributes
-                            ?.textColor ?? "text-[#11787F]"
-                        }]`}
-                      >
-                        {
-                          botResult?.attributes?.subcategory?.data?.attributes
-                            ?.title
-                        }
-                      </span>
-                    </div>
-                  )}
+                      {
+                        botResult?.attributes?.subcategory?.data?.attributes
+                          ?.title
+                      }
+                    </span>
+                  </div>
                 </div>
                 <div className="my-3">
                   <p className="text-[16px] md:text-[24px]">
