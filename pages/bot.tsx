@@ -30,10 +30,7 @@ export default function Bot() {
     fetcherStrapi
   );
   const botResult = botData?.data?.data;
-  console.log(
-    botResult?.attributes?.subcategory?.data?.attributes?.backgroundColor,
-    "<<< WALDO"
-  );
+
   return (
     <MainLayout>
       <div className="px-[16px] md:px-[100px] py-[50px]">
@@ -100,8 +97,8 @@ export default function Bot() {
                 </div>
                 <div className="my-3">
                   <p className="text-[16px] md:text-[24px]">
-                    {botResult?.attributes?.chain} Chain,{" "}
-                    {botResult?.attributes?.members} Members
+                    {botResult?.attributes?.chain?.data?.attributes?.name}{" "}
+                    Chain, {botResult?.attributes?.members} Members
                   </p>
                 </div>
                 <a className="cursor-pointer w-full block px-[19px] py-[8px] rounded-[39px] text-[#28B9E8] font-bold text-center border border-[#28B9E8]">

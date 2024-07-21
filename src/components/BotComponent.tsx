@@ -44,7 +44,8 @@ export const BotComponent = ({ attributes }: Props) => {
         <div className="flex flex-col gap-y-3 justify-center">
           <p className="font-semibold">{attributes?.title}</p>
           <p>
-            {attributes?.chain} Chain, {attributes?.members} members
+            {attributes?.chain?.data?.attributes?.name} Chain,{" "}
+            {attributes?.members} members
           </p>
           <a className="px-[19px] py-[8px] justify-center rounded-[39px] border-[#28B9E8] border-[1px] flex gap-x-2 cursor-pointer">
             <Image width={24} height={24} alt="download" src="/img/plus.svg" />
