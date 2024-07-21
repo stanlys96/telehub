@@ -141,7 +141,7 @@ export default function Home() {
         )}
         {searchQuery && (
           <div className="text-center md:text-left">
-            <p>Search results for "{searchQuery}"</p>
+            <p>Search results for &quot;{searchQuery}&quot;</p>
             <p>{botsResult?.length} results</p>
           </div>
         )}
@@ -196,7 +196,10 @@ export default function Home() {
             >
               <Col className="flex flex-col gap-y-2 justify-center" span={24}>
                 {subcategoriesOptions?.map((data: any) => (
-                  <div className="flex justify-between items-center">
+                  <div
+                    key={data.value}
+                    className="flex justify-between items-center"
+                  >
                     <Checkbox
                       className="text-[14px] text-[#676767]"
                       value={data?.value}
@@ -227,7 +230,10 @@ export default function Home() {
             <Checkbox.Group style={{ width: "100%" }} onChange={onChangeRating}>
               <Col className="flex flex-col gap-y-2 justify-center" span={24}>
                 {ratingOptions.map((data) => (
-                  <div className="flex justify-between items-center">
+                  <div
+                    key={data.value}
+                    className="flex justify-between items-center"
+                  >
                     <Checkbox
                       className="text-[12px] text-[#676767] w-full"
                       value={data.value}
